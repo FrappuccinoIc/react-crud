@@ -7,7 +7,7 @@ function App() {
     const [items, setItems] = useState([]);
     const [itemToEdit, setItemToEdit] = useState(null);
 
-    useEffect(() => {
+    useEffect(() => { //función ejecutada al iniciar la página, sirve para inicializar variables al cargar
         const storedItems = JSON.parse(localStorage.getItem('items')) || [];
         setItems(storedItems);
     }, []);
