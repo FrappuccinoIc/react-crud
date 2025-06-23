@@ -18,7 +18,8 @@ function App() {
 
     const addOrUpdateItem = (value) => {
         if(itemToEdit) {
-            setItems(items.map(item => item.id === itemToEdit.id ? { ...item, value } : item));
+            setItems(items.map(item => item.id === itemToEdit.id ? { ...item, value} : item));
+            console.log(items);
             setItemToEdit(null);
         } else setItems([...items, { id: Date.now(), value }]);
     };

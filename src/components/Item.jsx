@@ -3,7 +3,7 @@ import React from 'react';
 function Item({ item, deleteItem, editItem}) {
     return (
         <li>
-            {item.value}
+            {item.value} | {item.subject} | {item.grade}<br/>
             <button onClick={() => editItem(item)}>Editar</button>
             <button onClick={() => deleteItem(item.id)}>Eliminar</button>
         </li>
