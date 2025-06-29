@@ -16,16 +16,16 @@ function App() {
         localStorage.setItem('items', JSON.stringify(items));
     }, [items]);
 
-    const addOrUpdateItem = (value) => {
-        if(itemToEdit) {
-            setItems(items.map(item => item.id === itemToEdit.id ? { ...item, value} : item));
-            console.log(items);
+    const addOrUpdateItem = (item) => {
+        if(itemToEdit) { //Si se tiene un item seleccionado por editar, actualiza tal item. Si no, añade el nuevo item.
+            setItems(items.map(foundItem => foundItem.id === itemToEdit.id ? { id: foundItem.id, ...item } : foundItem));
             setItemToEdit(null);
-        } else setItems([...items, { id: Date.now(), value }]);
+        } else setItems([...items, { id: Date.now(), value: item.value, subject: item.subject, grade: item.grade }]);
     };
 
     const deleteItem = (id) => {
         setItems(items.filter(item => item.id !== id));
+        if(itemToEdit && id === itemToEdit.id) setItemToEdit(null); //Si el item por eliminar está seleccionado para editar, remueve el texto del item al editar, ya que no puedes editar algo que borraste
     };
 
     const editItem = (item) => {

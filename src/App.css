@@ -4,3 +4,22 @@
   padding: 2rem;
   text-align: center;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  justify-content: flex-start;
+}
+
+form input {
+  text-align: start;
+  margin: 5px 0px;
+  width: 30rem;
+  height: 1rem;
+}
+
+.error-msg {
+  color: rgb(226, 48, 48);
+  margin: 0px 0px;
+}
