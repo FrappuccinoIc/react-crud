@@ -7,13 +7,13 @@ function App() {
     const [items, setItems] = useState([]);
     const [itemToEdit, setItemToEdit] = useState(null);
 
-    useEffect(() => { //función ejecutada al iniciar la página, sirve para inicializar variables al cargar
-        const storedItems = JSON.parse(localStorage.getItem('items')) || [];
-        setItems(storedItems);
+    useEffect(() => { //función ejecutada con cada cambio en la página, sirve para guardar variables y accederlas incluso recargando la página.
+        const storedItems = JSON.parse(window.localStorage.getItem('items')) || [];
+        if(storedItems.length !== 0) setItems(storedItems);
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(items));
+        window.localStorage.setItem('items', JSON.stringify(items));
     }, [items]);
 
     const addOrUpdateItem = (item) => {

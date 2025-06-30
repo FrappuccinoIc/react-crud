@@ -11,6 +11,7 @@ function Form({ addOrUpdateItem, itemToEdit }) {
             setInputSubject(itemToEdit.subject);
             setInputGrade(itemToEdit.grade);
         } else resetInputs()
+        localStorage.set
     }, [itemToEdit]);
 
     const resetInputs = () => {
