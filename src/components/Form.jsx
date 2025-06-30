@@ -42,15 +42,22 @@ function Form({ addOrUpdateItem, itemToEdit }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} id="form">
-            <label htmlFor="name">Nombre del Alumno:</label>
-            <input required type="text" value={inputValue} onChange={(e) => registraCambioValor(e)} id='name' minLength={3} maxLength={30} onInvalid={(e) => e.target.setCustomValidity("Ingrese de 3-30 carácteres.")}/><br/>
-            <label htmlFor="subject">Asignatura:</label>
-            <input required type="text" value={inputSubject} onChange={(e) => registraCambioSubject(e)} id="subject" minLength={3} maxLength={30} onInvalid={(e) => e.target.setCustomValidity("Ingrese de 3-50 carácteres.")}/><br/>
-            <label htmlFor="grade">Promedio:</label>
-            <input required type="number" value={inputGrade} onChange={(e) => registraCambioGrade(e)} id="grade" step="0.1" min="1.0" max="7.0" placeholder="1.0" onInvalid={(e) => e.target.setCustomValidity("Ingrese un valor entre 1.0-7.0 ")}/><br/>
-            <button>{itemToEdit ? 'Actualizar' : 'Agregar'}</button>
-        </form>
+        <div id='div-form' className='container border-3 p-4 gap-4'>
+            <form onSubmit={handleSubmit} id="form" className='form-label'>
+                <h3 className='mb-4'>{itemToEdit ? "Editar Evaluación" : "Agregar Nueva Evaluación"}</h3>
+
+                <label className='form-label fw-bold' htmlFor="name">Nombre del Alumno:</label>
+                <input className='form-control mb-4' required type="text" value={inputValue} onChange={(e) => registraCambioValor(e)} id='name' minLength={3} maxLength={30} onInvalid={(e) => e.target.setCustomValidity("Ingrese de 3-30 carácteres.")} placeholder='Ej: Juan Pérez'/>
+
+                <label className='form-label fw-bold' htmlFor="subject">Asignatura:</label>
+                <input className='form-control mb-4' required type="text" value={inputSubject} onChange={(e) => registraCambioSubject(e)} id="subject" minLength={3} maxLength={50} onInvalid={(e) => e.target.setCustomValidity("Ingrese de 3-50 carácteres.")} placeholder='Ej: Matemáticas'/>
+
+                <label className='form-label fw-bold' htmlFor="grade">Promedio:</label>
+                <input className='form-control mb-4' required type="number" value={inputGrade} onChange={(e) => registraCambioGrade(e)} id="grade" step="0.1" min="1.0" max="7.0" placeholder="1.0" onInvalid={(e) => e.target.setCustomValidity("Ingrese un valor entre 1.0-7.0 ")}/>
+
+                <button className='btn btn-primary fw-bold'>{itemToEdit ? 'Actualizar Evaluación' : 'Agregar Evaluación'}</button>
+            </form>
+        </div>
     );
 }
 

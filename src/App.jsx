@@ -32,16 +32,16 @@ function App() {
         if(itemToEdit && id === itemToEdit.id) setItemToEdit(null);
     };
 
-    //Cambia el item para editar para toda la página.
+    //Cambia el item para editar para toda la página. Cancela modo editar si elemento ya está seleccionado.
     const editItem = (item) => {
-        setItemToEdit(item);
+        itemToEdit && itemToEdit.id === item.id? setItemToEdit(null) : setItemToEdit(item);
     };
 
     return (
         <div className="App">
-            <h1>CRUD con LocalStorage</h1>
+            <h1 className='container p-3 fw-bold' id='title'>CRUD con LocalStorage</h1>
             <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
-            <List items={items} deleteItem={deleteItem} editItem={editItem} />
+            <List items={items} itemToEdit={itemToEdit} deleteItem={deleteItem} editItem={editItem} />
         </div>
     );
 }
