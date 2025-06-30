@@ -20,8 +20,8 @@ function Item({ item, itemToEdit, deleteItem, editItem}) {
                 <p className='m-0 text-start escala-notas border rounded-pill fw-primary fw-bold'>{textoEscala}</p>
             </div>
             <div id='li-buttons' className='col-5'>
-                <button className='btn btn-warning fw-bold text-light' onClick={() => editItem(item)}>{itemToEdit && itemToEdit.id === item.id? "Cancelar" : "Editar"}</button>
-                <button className='btn btn-danger fw-bold' onClick={() => deleteItem(item.id)}>Eliminar</button>
+                <button className='m-1 btn btn-warning fw-bold text-light' onClick={() => editItem(item)}>{itemToEdit && itemToEdit.id === item.id? "Cancelar" : "Editar"}</button>
+                <button className='m-1 btn btn-danger fw-bold' onClick={() => deleteItem(item.id)}>Eliminar</button>
             </div>
         </li>
     );

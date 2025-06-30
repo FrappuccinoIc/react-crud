@@ -43,21 +43,12 @@ form button {
   width: 100%;
 }
 
-ul {
-  padding-left: 0px;
-  width: 100%;
-}
-
 li {
   list-style-type: none;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-}
-
-li button {
-  margin: 5px;
 }
 
 #list {
@@ -70,7 +61,7 @@ li button {
 .escala-notas {
   background-color: rgb(205, 232, 255);
   padding: 2px 2%;
-  width: 7rem;
+  width: fit-content;
   color: rgb(0, 68, 255);
   display: flex;
   justify-content: center;
