@@ -5,6 +5,7 @@ function Form({ addOrUpdateItem, itemToEdit }) {
     const [inputSubject, setInputSubject] = useState('');
     const [inputGrade, setInputGrade] = useState(1.0);
 
+    //Función ejecutada en cada cambio en la página, mantiene los valores de los inputs siempre actualizados
     useEffect(() => {
         if(itemToEdit) {
             setInputValue(itemToEdit.value);
@@ -19,9 +20,10 @@ function Form({ addOrUpdateItem, itemToEdit }) {
         setInputGrade(1.0);
     }
 
+    //Funciones complementarias que mantiene valores actualizados ante cambio del usuario en el Form.
     const registraCambioValor = (e) => {
         setInputValue(e.target.value);
-        e.target.setCustomValidity('')
+        e.target.setCustomValidity('') //Reinicia mensaje de validez cuando usuario escribe, ya que no se sabe si es valido aún o no mientras escribe.
     }
     const registraCambioSubject = (e) => {
         setInputSubject(e.target.value);
@@ -32,13 +34,9 @@ function Form({ addOrUpdateItem, itemToEdit }) {
         e.target.setCustomValidity('')
     }
 
+    // Función customizada de manejo de Form. No se ejecutará si la entrada es inválida, gracias a los atributos de los tag <input> de válidez.
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(
-            inputValue.trim().length < 3 || inputValue.trim().length > 30 ||
-            inputSubject.trim().length < 3 || inputSubject.trim().length > 50
-        ) return
-
         addOrUpdateItem({value: inputValue, subject: inputSubject, grade: inputGrade});
         resetInputs();
     };

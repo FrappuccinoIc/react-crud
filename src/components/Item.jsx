@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Complemento de cada item de la lista. Renderiza los datos y botones respectivos. Pasa funciones de editar y eliminar a este complemento para ser referenciados.
 function Item({ item, deleteItem, editItem}) {
     return (
         <li>
