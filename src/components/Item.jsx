@@ -12,10 +12,10 @@ function Item({ item, itemToEdit, deleteItem, editItem}) {
     })
 
     return (
-        <li className='container row bg-light mt-3 pt-3 pb-3'>
+        <li className='container row bg-light mt-3'>
             <div id='li-info' className='col-7'>
-                <p className='fs-5 fw-bold m-0 text-start'>Alumno: {item.value}</p>
-                <p className='fw-secondary m-0 text-start'>Asignatura: {item.subject}</p>
+                <p className='fs-5 fw-bold m-0 text-start text-wrap'>Alumno: {item.value}</p>
+                <p className='fw-secondary m-0 text-start text-wrap'>Asignatura: {item.subject}</p>
                 <p className='m-0 text-start'>Nota: <span className='fw-bold'>{item.grade}</span></p>
                 <p className='m-0 text-start escala-notas border rounded-pill fw-primary fw-bold'>{textoEscala}</p>
             </div>
