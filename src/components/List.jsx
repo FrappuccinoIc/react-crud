@@ -9,7 +9,7 @@ function List({ items, itemToEdit, deleteItem, editItem }) {
             <ul>
                 {items.length ? items.map((item) => (
                     <Item key={item.id} item={item} itemToEdit={itemToEdit} deleteItem={deleteItem} editItem={editItem}/>
-                )) : <p>No hay evaluaciones guardadas aún. ¡Agrega una!</p> }
+                )) : <p>No hay evaluaciones guardadas aún.</p> }
             </ul>
         </div>
     );

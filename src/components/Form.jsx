@@ -52,7 +52,7 @@ function Form({ addOrUpdateItem, itemToEdit }) {
                 <label className='form-label fw-bold' htmlFor="subject">Asignatura:</label>
                 <input className='form-control mb-4' required type="text" value={inputSubject} onChange={(e) => registraCambioSubject(e)} id="subject" minLength={3} maxLength={50} onInvalid={(e) => e.target.setCustomValidity("Ingrese de 3-50 carácteres.")} placeholder='Ej: Matemáticas'/>
 
-                <label className='form-label fw-bold' htmlFor="grade">Promedio:</label>
+                <label className='form-label fw-bold' htmlFor="grade">Nota:</label>
                 <input className='form-control mb-4' required type="number" value={inputGrade} onChange={(e) => registraCambioGrade(e)} id="grade" step="0.1" min="1.0" max="7.0" placeholder="1.0" onInvalid={(e) => e.target.setCustomValidity("Ingrese un valor entre 1.0-7.0 ")}/>
 
                 <button className='btn btn-primary fw-bold'>{itemToEdit ? 'Actualizar Evaluación' : 'Agregar Evaluación'}</button>
